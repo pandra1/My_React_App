@@ -25,12 +25,12 @@ class CommentForm extends Component {
     super(props);
     this.state = {
       isModalOpen: false,
-      Rating: "",
+      Author_Rating: "",
       Your_Name: "",
-      Your_Comment: "",
+      Comments: "",
       touched: {
-        Rating: 0,
-        Your_Comment: false,
+        Author_Rating: 0,
+        Comments: false,
         Your_Name: false,
       },
     };
@@ -42,10 +42,10 @@ class CommentForm extends Component {
       isModalOpen: !this.state.isModalOpen,
     });
   }
-  validate_Comment(Rating, Your_Name, Your_Comment) {
+  validate_Comment(Author_Rating, Your_Name, Comments) {
     const errors = {
-      Rating: "",
-      Your_Comment: "",
+      Author_Rating: "",
+      Comments: "",
       Your_Name: "",
     };
     
@@ -77,9 +77,9 @@ class CommentForm extends Component {
   };
   render() {
     const errors = this.validate_Comment(
-      this.state.Rating,
+      this.state.Author_Rating,
       this.state.Your_Name,
-      this.state.Your_Comment
+      this.state.Comments
     );
     return (
       <div>
@@ -106,13 +106,13 @@ class CommentForm extends Component {
           <ModalBody>
             <Form onSubmit={this.handleLogin}>
               <FormGroup>
-                <Label>Rating</Label>
+                <Label>Author_Rating</Label>
                 <br></br>
                 <select
                   className="col-12 col-md-12 m-1"
-                  value={this.state.Rating}
+                  value={this.state.Author_Rating}
                   onChange={this.handleInputChange}
-                  name="Rating"
+                  name="Author_Rating"
                 >
                   <option value="5" selected>
                     5
@@ -149,8 +149,8 @@ class CommentForm extends Component {
                 <Input
                   type="textarea"
                   rows="6"
-                  name="Your_Comment"
-                  value={this.state.Your_Comment}
+                  name="Comments"
+                  value={this.state.Comments}
                   onChange={this.handleInputChange}
                 />
               </FormGroup>
